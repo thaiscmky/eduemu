@@ -3,9 +3,10 @@
   * Copyrights licensed under GPL-2.0.
   * See the accompanying LICENSE.txt file for terms.
   */
- 
+
 const router = require('express').Router();
 const { User } = require('../../models');
+const passport = require('../../config/passport');
 
 router.post('/', (req, res) => {
   User.create({
@@ -27,25 +28,20 @@ router.post('/', (req, res) => {
     });
 });
 
-router.post('/login', (req, res) => {
+// app.post('/login',
+// passport.authenticate('local', { failureRedirect: '/login', failureMessage: true }),
+// function(req, res) {
+  
+//   res.redirect('/~' + req.user.username);
+// });
+
+
+router.post('/login', passport.authenticate('local', { failureRedirect: '/login', failureMessage: true, session: false }), (req, res) => {
   User.findOne({
     where: {
       username: req.body.username
     }
   }).then(data => {
-    const generic_msg = "Incorrect username or password.";
-    if (!data) {
-      res.status(400).json({ message: generic_msg});
-      return;
-    }
-
-    const validPassword = data.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res.status(400).json({ message: generic_msg });
-      return;
-    }
-
     req.session.save(() => {
       req.session.userId = data.id;
       req.session.username = data.username;
