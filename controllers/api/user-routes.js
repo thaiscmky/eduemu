@@ -1,3 +1,9 @@
+/**
+  * Copyright (c) 2022, Thaís Cailet, @thaiscmky. All rights reserved.
+  * Copyrights licensed under GPL-2.0.
+  * See the accompanying LICENSE.txt file for terms.
+  */
+ 
 const router = require('express').Router();
 const { User } = require('../../models');
 
@@ -49,22 +55,15 @@ router.post('/login', (req, res) => {
     });
   });
 });
- /**
-  * Copyright (c) 2022, Thaís Cailet, @thaiscmky. All rights reserved.
-  * Copyrights licensed under GPL-2.0.
-  * See the accompanying LICENSE.txt file for terms.
-  */
+ 
 
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res
-        .status(204)
-        .json({ message: 'Log-out successfull' })
-        .end();
+      res.redirect('/');
     });
   } else {
-    res.status(400).end();
+    res.redirect('/');
   }
 });
 

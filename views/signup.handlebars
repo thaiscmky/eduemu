@@ -9,18 +9,24 @@
   <div class="card-header">
     <h2>Sign Up</h2>
   </div>
-  <div id="signup" role="tabpanel">
-    <form id="signup-form" class="card-body">
-      <div>
-        <label for="username-signup">Username</label>
-        <input type="text" id="username-signup" />
+  <div class="card-body">
+    <form id="signup-form" class="row g-3">
+      <div class="row mt-3 mb-3">
+        <div class="col-auto">
+          <label for="username-signup" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username-signup" />
+        </div>
+        <div class="col-auto">
+          <label for="password-signup" class="form-label">Password</label>
+          <input type="password" id="password-signup" class="form-control" />
+        </div>
       </div>
-      <div>
-        <label for="password-signup">Password</label>
-        <input type="password" id="password-signup" />
+      <div class="row">
+        <div class="col-auto">
+          <button type="submit" id="signup-btn" class="btn btn-primary mb-3">Signup</button>
+          <br/>Already have an account? <a href="/login">Login</a>
+        </div>
       </div>
-      <button type="submit" id="signup-btn" class="btn" >Signup</button>
-      <br/>Already have an account? <a href="/login">Login</a>
     </form>
   </div>
 </div>

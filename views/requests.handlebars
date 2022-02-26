@@ -7,7 +7,7 @@
 --}}
 <div class="requests">
   {{#each requests}}
-  <article class="card">
+  <article class="card mb-3">
     <div class="card-header flex-row justify-space-between">
       <h2>
         <a href="/request/{{id}}">{{title}}</a>
@@ -17,8 +17,9 @@
       </div>
     </div>
     <div class="card-body">
-      {{body}}
+      <a href="{{url}}" target="_blank">{{url}}</a>
     </div>
   </article>
   {{/each}}
+  <hr/>
 </div>

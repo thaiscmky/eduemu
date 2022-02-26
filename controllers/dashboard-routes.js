@@ -14,18 +14,18 @@ router.get("/", auth, (req, res) => {
         userId: req.session.userId
       }
     })
-      .then(data => {
-        const requests = data.map((request) => request.get({ plain: true }));
-        
-        res.render("requests", {
-          layout: "dashboard",
-          requests
-        });
-      })
-      .catch(err => {
-        console.log(err);
-        res.redirect("login");
+    .then(data => {
+      const requests = data.map((request) => request.get({ plain: true }));
+      
+      res.render("requests", {
+        layout: "dashboard",
+        requests
       });
+    })
+    .catch(err => {
+      console.log(err);
+      res.redirect("login");
+    });
   });
 
   router.get("/new", auth, (req, res) => {

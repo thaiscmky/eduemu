@@ -15,8 +15,13 @@ $("#signup-form").submit(function(e){
     }),
     headers: { "Content-Type": "application/json" }
   })
-  .then(function() {
-    document.location.replace("/dashboard");
+  .then(response => response.json())
+  .then(data => {
+    if(data.errors !== undefined && data.errors.length > 0){
+      alert(data.errors.map(error => error.message).join(' '));
+    } else {
+      document.location.replace("/dashboard");
+    }
   })
   .catch(err => console.log(err));
 });

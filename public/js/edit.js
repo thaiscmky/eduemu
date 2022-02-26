@@ -19,6 +19,7 @@ $('#edit-request-form').submit(function(e) {
         'Content-Type': 'application/json'
       }
     })
+    .then(response => response.json())
     .then(() => {document.location.replace('/dashboard'); })
     .catch((error) => {
       console.error('Error:', error);

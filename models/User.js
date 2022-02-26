@@ -9,8 +9,8 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class User extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
+  checkPassword(login) {
+    return bcrypt.compareSync(login, this.password);
   }
 }
 
@@ -30,19 +30,19 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        is: /^[a-z0-9_-]{8,30}$/
+        is: /^(?=.{8,35}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/
       }
     }
   },
   {
     hooks: {
-      async beforeCreate(newUserData) {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
+      async beforeCreate(data) {
+        data.password = await bcrypt.hash(data.password, 10);
+        return data;
       },
-      async beforeUpdate(updatedUserData) {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-        return updatedUserData;
+      async beforeUpdate(data) {
+        data.password = await bcrypt.hash(data.password, 10);
+        return data;
       }
     },
     sequelize

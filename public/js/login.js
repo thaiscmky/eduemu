@@ -6,7 +6,7 @@
 
 $("#login-form").submit(function(e){
   e.preventDefault();
-  const username = $("#user-login").val().trim();
+  const username = $("#username-login").val().trim();
   const password = $("#password-login").val().trim();
   fetch("/api/user/login", {
     method: "post",
@@ -16,8 +16,13 @@ $("#login-form").submit(function(e){
     }),
     headers: { "Content-Type": "application/json" }
   })
-  .then(function() {
-    document.location.replace("/dashboard");
+  .then(response => response.json())
+  .then(data => {
+    if(data.errors !== undefined && data.errors.length > 0){
+      alert(data.errors.map(error => error.message).join(' '));
+    } else {
+      document.location.replace("/dashboard");
+    }
   })
   .catch(err => console.log(err));
 });

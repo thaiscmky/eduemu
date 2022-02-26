@@ -6,21 +6,22 @@
 
 $('#new-comment-form').submit(function(e){
   e.preventDefault();
-  const id = $('input[name="request-id"]').val().trim();
+  const requestId = $('input[name="request-id"]').val().trim();
   const body = $('textarea[name="comment"]').val().trim();
 
-  if(url) {
+  if(body) {
     fetch('/api/comment', {
       method: 'POST',
       body: JSON.stringify({
-        id,
+        requestId,
         body
       }),
       headers: {
         'Content-Type': 'application/json'
       }
     })
-    .then(() => { document.location.reload(); })
+    .then(response => response.json())
+    .then((data) => { document.location.reload(); })
     .catch((error) => {
       console.error('Error:', error);
     });

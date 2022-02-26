@@ -9,8 +9,6 @@ $("#logout-link").click(function(){
     method: "post",
     headers: { "Content-Type": "application/json" }
   })
-  .then(function() {
-    document.location.replace("/");
-  })
+  .then(() => { document.location.replace("/dashboard"); })
   .catch(err => console.log(err));
 });

@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="card-body">
-      Documentation can be found at {{request.url}}.
+      Documentation can be found at <a href="{{request.url}}" target="_blank">{{request.url}}</a>.
     </div>
   </article>
 
@@ -24,7 +24,7 @@
         <h3>Comments</h3>
       </div>
 
-      <div class="card-body">
+      <div class="card-body bg-yellow bg-lighten-xl">
         {{#each request.Comments}}
           <div>
             <p>
@@ -34,6 +34,7 @@
               &mdash; {{User.username}}, {{format_date createdAt}}
             </p>
           </div>
+          <hr/>
         {{/each}}
       </div>
     </section>
@@ -45,13 +46,13 @@
     </div>
 
     <div class="card-body">
-      <input type="hidden" name="post-id" value="{{request.id}}" />
-
-      <label class="form-label" for="comment-body">Comment</label>
-
-      <textarea name="comment-body" class="form-input"></textarea>
-
-      <button type="submit" class="btn">Submit</button>
+      <input type="hidden" name="request-id" value="{{request.id}}" />
+      <div class="mb-3">
+        <label for="comment" class="form-label">Comment</label>
+        <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+      </div>
+      
+      <button type="submit" class="btn btn-primary mb-3">Submit</button>
     </div>
   </form>
 </div>

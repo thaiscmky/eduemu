@@ -9,18 +9,26 @@
   <div class="card-header">
     <h2>Login</h2>
   </div>
-  <form id="login-form" class="card-body">
-    <div>
-      <label for="username-login">Username</label>
-      <input type="text" id="username-input-login" />
-    </div>
-    <div>
-      <label for="password-login" class="form-label">Password</label>
-      <input type="password" id="password-login" />
-    </div>
-    <button type="submit" id="login-btn" class="btn">Login</button>
-    <br/>No account? <a type="button" href="/signup">Register</a>
-  </form>
+  <div class="card-body">
+    <form id="login-form" class="row g-3">
+      <div class="row mt-3 mb-3">
+        <div class="col-auto">
+          <label for="username-login" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username-login" name="username-login" />
+        </div>
+        <div class="col-auto">
+          <label for="password-login" class="form-label">Password</label>
+          <input type="password" id="password-login" class="form-control" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-auto">
+          <button type="submit" id="login-btn" class="btn btn-primary mb-3">Login</button>
+          <br/>No account? <a type="button" href="/signup">Register</a>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 
 <script src="/js/login.js"></script>

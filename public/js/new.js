@@ -4,11 +4,11 @@
   * See the accompanying LICENSE.txt file for terms.
   */
 
-$("#new-post-form").submit(function(e){
+$("#new-request-form").submit(function(e){
   e.preventDefault();
-  const title = document.querySelector('input[name="request-title"]').value;
-  const url = document.querySelector('textarea[name="request-url"]').value;
-  fetch(`/api/post`, {
+  const title = $('input[name="request-title"]').val();
+  const url = $('input[name="request-url"]').val();
+  fetch(`/api/request`, {
     method: "POST",
     body: JSON.stringify({
       title,

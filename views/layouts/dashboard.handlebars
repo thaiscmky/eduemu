@@ -4,8 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edu Emu | Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body class="flex-column min-100-vh">
 <!-- 
@@ -15,25 +17,56 @@
   * See the accompanying LICENSE.txt file for terms.
   */ 
  -->
-
-  <nav class="navbar">
-    <ul class="flex-row">
-      <li class="li-inline nav-item"><a href="/">Home</a></li>
-      <li class="li-inline nav-item"><a href="/dashboard">Dashboard</a></li>
-      <li class="li-inline nav-item"><a href="#" id="logout-link">Logout</a></li>
-    </ul>
-  </nav>
-  <header class="hero">
-    <h1 class="app-title"><a href="/dashboard">Your Dashboard</a></h1>
-  </header>
-
-  <main class="col-auto">
-    {{{body}}}
-  </main>
-
-  <footer class="footer flex-row justify-center">
-    <a href="/dashboard/new"><i class="fa-solid fa-plus"></i> New Request</a>
-  </footer>
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <nav class="navbar navbar-expand-md navbar-light bg-ligh">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/">Edu Emu</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#emuedunavigation" aria-controls="emuedunavigation" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="emuedunavigation">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" id="logout-link">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <header class="hero">
+          <h1 class="app-title"><a href="/">Edu Emu</a></h1>
+          <h2>A place for requesting Workshops</h2>
+        </header>
+      </div>
+    </div>
+    <div class="row">
+      <main class="col">
+        {{{body}}}
+      </main>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p>
+          <a class="btn btn-primary" href="/dashboard/new" role="button"><i class="bi-plus"></i> New Request</a>
+        </p>
+        <footer class="footer mt-auto py-3 bg-light">
+          &copy; 2022, Thaís Cailet, @thaiscmky. All rights reserved. Copyrights licensed under GPL-2.0.
+        </footer>
+      </div>
+    </div>
+  </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="/js/logout.js"></script>
 </body>

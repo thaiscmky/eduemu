@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
   })
   .then((data) => {
     const requests = data.map((request) => request.get({ plain: true }));
-    res.render("requests", { requests });
+    res.render("requests", { requests, loggedIn: req.session.loggedIn ?? false });
   })
   .catch((err) => {
     res.status(500).json(err);
