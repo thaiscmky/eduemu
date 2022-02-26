@@ -1,13 +1,13 @@
-const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
-const sequelize = require('../config/config');
-
  /**
   * Copyright (c) 2022, Thaís Cailet, @thaiscmky. All rights reserved.
   * Copyrights licensed under the New BSD License.
   * See the accompanying LICENSE.txt file for terms.
   */
  
+const { Model, DataTypes } = require('sequelize');
+const bcrypt = require('bcrypt');
+const sequelize = require('../config/config');
+
 class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
