@@ -1,0 +1,24 @@
+{{!-- 
+  /**
+  * Copyright (c) 2022, Thaís Cailet, @thaiscmky. All rights reserved.
+  * Copyrights licensed under the New BSD License.
+  * See the accompanying LICENSE.txt file for terms.
+  */ 
+--}}
+<div class="requests">
+  {{#each requests}}
+  <article class="card">
+    <div class="card-header flex-row justify-space-between">
+      <h2>
+        <a href="/request/{{id}}">{{title}}</a>
+      </h2>
+      <div>
+        Requested by {{User.username}} on {{format_date createdAt}}
+      </div>
+    </div>
+    <div class="card-body">
+      {{body}}
+    </div>
+  </article>
+  {{/each}}
+</div>

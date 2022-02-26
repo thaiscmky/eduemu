@@ -1,0 +1,29 @@
+{{!-- 
+  /**
+  * Copyright (c) 2022, Thaís Cailet, @thaiscmky. All rights reserved.
+  * Copyrights licensed under the New BSD License.
+  * See the accompanying LICENSE.txt file for terms.
+  */ 
+--}}
+<ol class="request-list">
+  {{#each requests as |request|}}
+  <li>
+    <article class="request card">
+      <div class="card-body">
+        <h2 class="card-title title">
+          <a href="{{request.url}}" target="_blank">{{request.title}}</a>
+          <span>({{request.url}})</span>
+        </h2>
+        <h3 class="card-subtitle mb-2 text-muted meta">
+          {{request.vote_count}} point(s) by {{request.user.username}} on
+          {{request.created_at}}
+          |
+          <a href="/request/{{request.id}}">{{request.comments.length}} comment(s)</a>
+        </h3>
+      </div>
+    </article>
+
+</div>
+  </li>
+  {{/each}}
+</ol>

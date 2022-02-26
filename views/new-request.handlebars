@@ -1,0 +1,23 @@
+{{!-- 
+  /**
+  * Copyright (c) 2022, Thaís Cailet, @thaiscmky. All rights reserved.
+  * Copyrights licensed under the New BSD License.
+  * See the accompanying LICENSE.txt file for terms.
+  */ 
+--}}
+<div class="request card">
+  <div class="card-header">
+    <h2>Create New Request</h2>
+  </div>
+  <form id="new-request-form" class="card-body">
+    <label class="form-label" for="request-title">Framework/Library/Technology</label>
+    <input type="text" name="request-title" class="form-input" />
+
+    <label class="form-label" for="request-url">Technology's Documentation URL</label>
+    <input type="url" name="request-url" id="request-url" placeholder="https://example.com" pattern="https://.*" required class="form-input"/>
+
+    <button type="submit" class="btn">Create</button>
+  </form>
+</div>
+
+<script src="/js/new.js"></script>
