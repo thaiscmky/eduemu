@@ -34,7 +34,7 @@ router.get("/request/:id", (req, res) => {
     if (data) {
       const request = data.get({ plain: true });
 
-      res.render("request", { request });
+      res.render("request", { request, loggedIn: req.session.loggedIn ?? false });
     } else {
       res.status(404).end();
     }
