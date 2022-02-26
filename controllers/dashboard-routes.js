@@ -3,12 +3,12 @@
   * Copyrights licensed under the New BSD License.
   * See the accompanying LICENSE.txt file for terms.
   */
- 
+
 const router = require("express").Router();
 const { Request } = require("../models/");
-const withAuth = require("../utils/auth");
+const auth = require("../utils/auth");
 
-router.get("/", withAuth, (req, res) => {
+router.get("/", auth, (req, res) => {
   Request.findAll({
       where: {
         userId: req.session.userId
@@ -28,13 +28,13 @@ router.get("/", withAuth, (req, res) => {
       });
   });
 
-  router.get("/new", withAuth, (req, res) => {
+  router.get("/new", auth, (req, res) => {
     res.render("new-request", {
       layout: "dashboard"
     });
   });
   
-  router.get("/edit/:id", withAuth, (req, res) => {
+  router.get("/edit/:id", auth, (req, res) => {
     Request.findByPk(req.params.id)
       .then(data => {
         if (data) {

@@ -3,9 +3,9 @@
   * Copyrights licensed under the New BSD License.
   * See the accompanying LICENSE.txt file for terms.
   */
- 
+
 const { Sequelize, Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/config');
+const sequelize = require('../config/connection');
 
 class Request extends Model {}
 

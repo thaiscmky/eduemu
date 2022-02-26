@@ -6,9 +6,9 @@
 
 const router = require("express").Router();
 const { Request } = require("../../models/");
-const withAuth = require("../../utils/auth");
+const auth = require("../../utils/auth");
 
-router.post("/", withAuth, (req, res) => {
+router.post("/", auth, (req, res) => {
   const body = req.body;
   console.log(req.session.userId);
   Request.create({ ...body, userId: req.session.userId })
@@ -18,7 +18,7 @@ router.post("/", withAuth, (req, res) => {
     });
 });
 
-router.put("/:id", withAuth, (req, res) => {
+router.put("/:id", auth, (req, res) => {
   Request.update(req.body, {
     where: {
       id: req.params.id
@@ -36,7 +36,7 @@ router.put("/:id", withAuth, (req, res) => {
     });
 });
 
-router.delete("/:id", withAuth, (req, res) => {
+router.delete("/:id", auth, (req, res) => {
   Request.destroy({
     where: {
       id: req.params.id

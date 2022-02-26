@@ -3,7 +3,7 @@
   * Copyrights licensed under the New BSD License.
   * See the accompanying LICENSE.txt file for terms.
   */
- 
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 

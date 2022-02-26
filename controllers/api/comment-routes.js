@@ -3,12 +3,12 @@
   * Copyrights licensed under the New BSD License.
   * See the accompanying LICENSE.txt file for terms.
   */
- 
+
 const router = require("express").Router();
 const { Comment } = require("../../models/");
-const withAuth = require("../../utils/auth");
+const auth = require("../../utils/auth");
 
-router.post("/", withAuth, (req, res) => {
+router.post("/", auth, (req, res) => {
   Comment.create({ ...req.body, userId: req.session.userId })
     .then(comment => { res.json(comment); })
     .catch(err => {
